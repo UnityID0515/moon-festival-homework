@@ -105,9 +105,23 @@ pip install -r requirements.txt
 
 ---
 
-## 🚢 部署至 Vercel (Deployment)
+## 🚢 部署指南 (Deployment to Vercel)
 
-本專案已包含標準 `vercel.json`：
-1. 將代碼推送到 GitHub Repository。
-2. 登入 [Vercel](https://vercel.com/)，點擊 **Add New Project** 並 Import 此 Repository。
-3. 保持預設設定，點擊 **Deploy**，Vercel 將自動建立 Serverless Python 環境並產生正式網址！
+本專案已包含針對 FastAPI 的標準 [`vercel.json`](file:///Users/alexh/Projects/School/moon-festival-homework/vercel.json) 設定，可直接部署至 **Vercel** 免費伺服器less 平台：
+
+### 1. 透過 Vercel Web 介面一鍵部署（推薦）
+1. 前往 [Vercel 官網](https://vercel.com/) 並使用你的 GitHub 帳號登入。
+2. 點擊右上角 **「Add New...」** -> **「Project」**。
+3. 在 Import Git Repository 列表中找到 `UnityID0515/moon-festival-homework`，點擊 **「Import」**。
+4. **專案配置設定**：
+   * **Framework Preset**：選擇 `Other`（保持預設即可，Vercel 會自動辨識根目錄的 `vercel.json` 與 `requirements.txt`）。
+   * **Root Directory**：`./`（根目錄）。
+   * **Environment Variables**：無需額外設定。
+5. 點擊 **「Deploy」**。
+6. 等待約 1 分鐘，Vercel 將自動建立 Python Serverless 執行環境並產出正式網址（例如：`https://moon-festival-homework-xxx.vercel.app`）！
+
+### 2. 部署後驗收 (Post-Deployment Verification)
+* 訪問首頁大廳 `/`，確認中秋夜空漸層、滿月與 Lucide Icons 向量圖標正常載入。
+* 點擊進入 `/games/mooncake`，點擊大月餅與購買升級，確認 HTMX 局部無刷新更新與 Session 運作正常。
+* 點擊進入 `/games/bbq`，點擊食材放上烤網、翻面與刷醬，確認定時熟成與起鍋結算功能正常。
+* 部署成功後，記得將上方的 `## 🔗 Demo` 網址替換為你的正式公開網址！
