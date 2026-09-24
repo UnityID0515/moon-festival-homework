@@ -26,6 +26,9 @@
 * **前端視覺樣式**：**TailwindCSS (via Play CDN)**
   * 透過官方 CDN `<script src="https://cdn.tailwindcss.com"></script>` 載入。
   * 零安裝、響應式排版，打造沉浸式中秋節慶夜空與月餅動畫。
+* **圖標系統 (Iconography)**：**Lucide Icons (via CDN)**
+  * 透過官方 CDN `<script src="https://unpkg.com/lucide@latest"></script>` 載入。
+  * 搭配 HTMX `hx-on::after-swap="lucide.createIcons()"` 達成局部置換後的自動圖標渲染，提供現代且專業的向量圖標。
 * **模板引擎**：**Jinja2**
   * 支援全頁渲染（Full Page）與 HTMX 局部片段（Partial HTML）無縫共用。
 * **部署平台**：**Vercel / Render**（具備 `vercel.json` 一鍵部署配置）。

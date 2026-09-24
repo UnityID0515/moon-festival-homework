@@ -5,29 +5,44 @@
 {% block content %}
 <header class="max-w-4xl mx-auto pt-16 pb-8 px-4 text-center">
   <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-medium tracking-wide mb-4">
-    <span>🥮 2026 中秋 H5 × AI 協作開發專案</span>
+    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i>
+    <span>2026 中秋 H5 × AI 協作開發專案</span>
   </div>
   <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-amber-100 via-amber-200 to-yellow-400 bg-clip-text text-transparent drop-shadow-md">
     中秋小遊戲樂園
   </h1>
   <p class="mt-4 text-slate-300 max-w-xl mx-auto text-base md:text-lg leading-relaxed">
-    以傳統中秋文化為核心，採用純 Python 後端 + HTMX + TailwindCSS 打造的輕量互動遊戲大廳。點擊月餅烘烤、解鎖玉兔道具！
+    以傳統中秋文化為核心，採用純 Python 後端 + HTMX + TailwindCSS + Lucide Icons 打造的輕量互動遊戲大廳。點擊月餅烘烤、解鎖玉兔道具！
   </p>
 
   <!-- Stack badges -->
   <div class="flex flex-wrap justify-center gap-2 mt-6">
-    <span class="px-3 py-1 bg-slate-800/80 border border-slate-700/80 rounded-lg text-xs text-amber-300 font-mono">⚡ FastAPI Backend</span>
-    <span class="px-3 py-1 bg-slate-800/80 border border-slate-700/80 rounded-lg text-xs text-cyan-300 font-mono">🔄 HTMX (No JS)</span>
-    <span class="px-3 py-1 bg-slate-800/80 border border-slate-700/80 rounded-lg text-xs text-teal-300 font-mono">🎨 Tailwind CSS</span>
-    <span class="px-3 py-1 bg-slate-800/80 border border-slate-700/80 rounded-lg text-xs text-purple-300 font-mono">📦 Zero npm</span>
-    <span class="px-3 py-1 bg-slate-800/80 border border-slate-700/80 rounded-lg text-xs text-emerald-300 font-mono">📐 SDD & TDD</span>
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-800/80 border border-slate-700/80 rounded-lg text-xs text-amber-300 font-mono">
+      <i data-lucide="server" class="w-3.5 h-3.5 text-amber-400"></i> FastAPI
+    </span>
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-800/80 border border-slate-700/80 rounded-lg text-xs text-cyan-300 font-mono">
+      <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-cyan-400"></i> HTMX (No JS)
+    </span>
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-800/80 border border-slate-700/80 rounded-lg text-xs text-teal-300 font-mono">
+      <i data-lucide="palette" class="w-3.5 h-3.5 text-teal-400"></i> Tailwind CSS
+    </span>
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-800/80 border border-slate-700/80 rounded-lg text-xs text-rose-300 font-mono">
+      <i data-lucide="feather" class="w-3.5 h-3.5 text-rose-400"></i> Lucide Icons
+    </span>
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-800/80 border border-slate-700/80 rounded-lg text-xs text-purple-300 font-mono">
+      <i data-lucide="package" class="w-3.5 h-3.5 text-purple-400"></i> Zero npm
+    </span>
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-800/80 border border-slate-700/80 rounded-lg text-xs text-emerald-300 font-mono">
+      <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> SDD & TDD
+    </span>
   </div>
 </header>
 
 <main class="max-w-5xl mx-auto px-4 py-8 w-full flex-1">
   <div class="flex items-center justify-between mb-6">
     <h2 class="text-xl font-bold text-amber-300 flex items-center gap-2">
-      <span>🎮</span> 遊戲大廳目錄
+      <i data-lucide="gamepad-2" class="w-5 h-5 text-amber-400"></i>
+      <span>遊戲大廳目錄</span>
     </h2>
     <span class="text-xs text-slate-400">Hub & Mini-Game SPA 模式</span>
   </div>
@@ -37,15 +52,21 @@
     <div class="bg-slate-900/70 border border-amber-400/30 hover:border-amber-400/70 rounded-2xl p-6 flex flex-col justify-between backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(246,211,101,0.15)] group">
       <div>
         <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-200">🥮</div>
-        <h3 class="text-xl font-bold text-white mb-2">月餅點點樂</h3>
+        <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+          <span>月餅點點樂</span>
+          <i data-lucide="sparkles" class="w-4 h-4 text-amber-300 opacity-80"></i>
+        </h3>
         <p class="text-sm text-slate-400 leading-relaxed">
           點擊烘烤廣式金黃月餅！利用 HTMX 實時更新產量，購買玉兔搗藥杵、廣寒宮烤箱與金沙蛋黃，挑戰成為月球烘焙大亨！
         </p>
       </div>
       <div class="mt-6 flex items-center justify-between pt-4 border-t border-slate-800">
-        <span class="px-2.5 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-md text-xs font-medium">🟢 開放遊玩</span>
-        <a href="/games/mooncake" class="px-4 py-2 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-bold text-sm rounded-xl transition-all shadow-md hover:shadow-amber-500/20">
-          開始遊玩 →
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-md text-xs font-medium">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> 開放遊玩
+        </span>
+        <a href="/games/mooncake" class="inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-bold text-sm rounded-xl transition-all shadow-md hover:shadow-amber-500/20">
+          <span>開始遊玩</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
       </div>
     </div>
@@ -54,13 +75,18 @@
     <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between opacity-70">
       <div>
         <div class="text-5xl mb-4 grayscale">🍢</div>
-        <h3 class="text-xl font-bold text-slate-300 mb-2">露天烤肉模擬器</h3>
+        <h3 class="text-xl font-bold text-slate-300 mb-2 flex items-center gap-2">
+          <span>露天烤肉模擬器</span>
+          <i data-lucide="flame" class="w-4 h-4 text-amber-500/60"></i>
+        </h3>
         <p class="text-sm text-slate-500 leading-relaxed">
           中秋夜烤肉飄香！精準掌控肉串翻面時機，刷上獨門香濃烤肉醬，挑戰不烤焦的最佳熟成度。（後續階段模組規劃）
         </p>
       </div>
       <div class="mt-6 flex items-center justify-between pt-4 border-t border-slate-800/50">
-        <span class="px-2.5 py-1 bg-slate-800 text-slate-400 rounded-md text-xs">⏳ 即將推出</span>
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-slate-800 text-slate-400 rounded-md text-xs">
+          <i data-lucide="clock" class="w-3 h-3 text-slate-400"></i> 即將推出
+        </span>
         <span class="px-3 py-1.5 bg-slate-800 text-slate-500 font-medium text-xs rounded-xl cursor-not-allowed">敬請期待</span>
       </div>
     </div>
@@ -69,13 +95,18 @@
     <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between opacity-70">
       <div>
         <div class="text-5xl mb-4 grayscale">🏮</div>
-        <h3 class="text-xl font-bold text-slate-300 mb-2">夜空祈福天燈</h3>
+        <h3 class="text-xl font-bold text-slate-300 mb-2 flex items-center gap-2">
+          <span>夜空祈福天燈</span>
+          <i data-lucide="send" class="w-4 h-4 text-amber-500/60"></i>
+        </h3>
         <p class="text-sm text-slate-500 leading-relaxed">
           寫下對家人與好友的暖心節慶祝詞，點燃天燈緩緩升入萬里無雲的中秋夜空，寄託美好思念。（後續階段模組規劃）
         </p>
       </div>
       <div class="mt-6 flex items-center justify-between pt-4 border-t border-slate-800/50">
-        <span class="px-2.5 py-1 bg-slate-800 text-slate-400 rounded-md text-xs">⏳ 即將推出</span>
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-slate-800 text-slate-400 rounded-md text-xs">
+          <i data-lucide="clock" class="w-3 h-3 text-slate-400"></i> 即將推出
+        </span>
         <span class="px-3 py-1.5 bg-slate-800 text-slate-500 font-medium text-xs rounded-xl cursor-not-allowed">敬請期待</span>
       </div>
     </div>
@@ -84,7 +115,8 @@
   <!-- Educational Info Panel -->
   <section class="mt-12 bg-slate-900/50 border border-slate-800 rounded-2xl p-6 md:p-8">
     <h3 class="text-lg font-bold text-amber-300 mb-3 flex items-center gap-2">
-      <span>💡</span> 軟體工程新手筆記：架構與實踐
+      <i data-lucide="book-open" class="w-5 h-5 text-amber-400"></i>
+      <span>軟體工程新手筆記：架構與實踐</span>
     </h3>
     <div class="space-y-3 text-sm text-slate-300 leading-relaxed">
       <p>
@@ -94,11 +126,14 @@
         <strong>2. 測試驅動 (TDD)</strong>：核心業務邏輯 <code>engine.py</code> 與 API 路由皆具備完整單元測試，透過 <code>python -m unittest</code> 驗證正確性。
       </p>
       <p>
-        <strong>3. 零手寫 JS 與零 npm</strong>：利用 HTMX 宣告式屬性（<code>hx-post</code>、<code>hx-target</code>、<code>hx-swap</code>）進行局部 DOM 替換，後端由 Python FastAPI 提供 HTML 片段，保持程式碼純淨與極簡依賴。
+        <strong>3. 零手寫 JS、零 npm 與現代圖標</strong>：利用 HTMX 宣告式屬性（<code>hx-post</code>、<code>hx-target</code>、<code>hx-swap</code>）進行局部 DOM 替換，搭配 Lucide Icons CDN 呈現專業質感，保持程式碼純淨與極簡依賴。
       </p>
     </div>
     <div class="mt-4 pt-4 border-t border-slate-800 flex flex-wrap gap-4 text-xs font-mono">
-      <a href="https://github.com/UnityID0515/moon-festival-homework" target="_blank" class="text-amber-400 hover:underline">GitHub Repository →</a>
+      <a href="https://github.com/UnityID0515/moon-festival-homework" target="_blank" class="inline-flex items-center gap-1 text-amber-400 hover:underline">
+        <i data-lucide="github" class="w-3.5 h-3.5"></i>
+        <span>GitHub Repository →</span>
+      </a>
     </div>
   </section>
 </main>

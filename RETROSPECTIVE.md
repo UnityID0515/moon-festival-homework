@@ -12,7 +12,8 @@
 ### 2. AI 做得最好的一件事是什麼？
 * **零 JS / 零 npm 的架構轉型與諮詢 (Architecture & Stack Consultation)**：
   當我提出「不想要 npm、不寫 JavaScript、希望以 Python 為核心打造 Hub + SPAs」的需求時，AI 提供了客觀專業的架構評估，並精確採用了現代 Python 生態中最火紅的 **HOT 棧 (FastAPI + HTMX + TailwindCSS via CDN)**。
-  這不僅完全避開了複雜的 Node.js/npm 建置流程，還實現了優雅的單頁應用（SPA）局部更新體驗，並保留了未來擴充第二款、第三款小遊戲的模組化能力。
+  此外，在視覺設計迭代上，AI 透過官方 CDN 整合了 **Lucide Icons**，搭配 HTMX 的 `hx-on::after-swap` 事件，在堅持「零手寫 JS 與零 npm」的前提下，讓遊戲大廳與月餅點點樂獲得了現代高質感的 SVG 向量圖標與流暢的動態置換體驗。
+
 
 ---
 

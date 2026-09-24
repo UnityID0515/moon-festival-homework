@@ -14,6 +14,7 @@
 ## ✨ 作品亮點與架構特色
 
 * **⚡ 現代 Python HOT 棧**：採用 **FastAPI + HTMX + TailwindCSS**，徹底摒棄繁雜的 Node.js/npm 建置流程與手寫 JavaScript。
+* **🎨 質感圖標系統 (Lucide Icons)**：引入官方 Lucide CDN，結合 HTMX 的 `hx-on::after-swap` 事件，在零手寫 JS 的架構下實現流暢動態圖標渲染。
 * **🎮 遊戲大廳 Hub + 獨立 SPA 模式**：
   * **大廳首頁 (`/`)**：沉浸式中秋夜空星月視覺，導引玩家至各個獨立小遊戲。
   * **第一款遊戲：月餅點點樂 (`/games/mooncake`)**：點擊烘烤月餅、購買自動烤爐與玉兔助手、達成烘焙成就。
