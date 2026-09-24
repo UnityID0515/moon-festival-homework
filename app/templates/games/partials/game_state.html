@@ -1,0 +1,118 @@
+<div id="game-state" class="contents">
+  <!-- Hidden Passive Ticker: Triggers tick every 1s if CPS > 0 -->
+  {% if game.cps > 0 %}
+  <div hx-post="/games/mooncake/tick" hx-trigger="every 1s" hx-target="#game-state" hx-swap="outerHTML" class="hidden"></div>
+  {% endif %}
+
+  <!-- Left Stats Panel -->
+  <div id="stats-panel" class="bg-slate-900/80 border border-amber-400/30 rounded-2xl p-6 md:p-8 flex flex-col items-center text-center backdrop-blur-sm shadow-xl">
+    <div class="text-xs uppercase tracking-widest text-slate-400 font-semibold mb-1">目前月餅存量</div>
+    <div id="score-text" class="text-5xl md:text-6xl font-black text-amber-300 drop-shadow-[0_0_20px_rgba(246,211,101,0.35)] font-mono my-2">
+      {{ "{:,}".format(game.score) }}
+    </div>
+
+    <div class="flex items-center gap-3 my-3">
+      <span class="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-xs font-medium text-amber-200">
+        每擊產能: +{{ game.cpc }}
+      </span>
+      <span class="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-xs font-medium text-emerald-300">
+        每秒被動: +{{ game.cps }}
+      </span>
+    </div>
+
+    <!-- Big Mooncake Click Button -->
+    <div class="my-6 relative flex justify-center items-center">
+      <button 
+        hx-post="/games/mooncake/click"
+        hx-target="#game-state"
+        hx-swap="outerHTML"
+        class="text-8xl md:text-9xl transform active:scale-90 transition-transform duration-100 cursor-pointer select-none filter drop-shadow-[0_15px_30px_rgba(246,211,101,0.3)] hover:scale-105 outline-none focus:outline-none"
+        title="點擊烘烤月餅！"
+      >
+        🥮
+      </button>
+    </div>
+
+    <div class="text-xs text-slate-400">
+      累計總產量: <span class="font-mono text-slate-200 font-semibold">{{ "{:,}".format(game.total_produced) }}</span> 顆
+    </div>
+    <p class="text-xs text-slate-500 mt-2">💡 點擊月餅，或購買右側自動烤爐與升級道具！</p>
+  </div>
+
+  <!-- Right Shop & Achievements Panel -->
+  <div class="flex flex-col gap-6">
+    <!-- Upgrades Shop -->
+    <div class="bg-slate-900/80 border border-amber-400/30 rounded-2xl p-6 backdrop-blur-sm shadow-xl">
+      <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-800">
+        <h3 class="text-base font-bold text-amber-300 flex items-center gap-2">
+          <span>🛠️</span> 升級工坊
+        </h3>
+        <span class="text-xs text-slate-400">提升點擊與被動產出</span>
+      </div>
+
+      <div class="space-y-3">
+        {% for upg in upgrades %}
+        <div class="bg-slate-800/60 border {% if game.score >= upg.cost %}border-amber-400/40 hover:border-amber-400{% else %}border-slate-800{% endif %} rounded-xl p-3.5 flex items-center justify-between gap-4 transition-colors">
+          <div class="flex items-center gap-3">
+            <div class="text-3xl bg-slate-700/50 w-12 h-12 rounded-lg flex items-center justify-center">
+              {{ upg.icon }}
+            </div>
+            <div>
+              <div class="font-bold text-sm text-slate-100">{{ upg.name }}</div>
+              <div class="text-xs text-slate-400">{{ upg.desc }}</div>
+              <div class="text-[11px] text-amber-400/80 mt-0.5 font-medium">已擁有: {{ upg.count }}</div>
+            </div>
+          </div>
+
+          <div>
+            <button
+              hx-post="/games/mooncake/buy/{{ upg.id }}"
+              hx-target="#game-state"
+              hx-swap="outerHTML"
+              {% if game.score < upg.cost %}disabled{% endif %}
+              class="px-3.5 py-2 text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 shadow-sm
+              {% if game.score >= upg.cost %}
+                bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 cursor-pointer hover:scale-105
+              {% else %}
+                bg-slate-800 text-slate-500 border border-slate-700/50 cursor-not-allowed
+              {% endif %}"
+            >
+              <span>🥮</span> {{ "{:,}".format(upg.cost) }}
+            </button>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Achievements Panel -->
+    <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 backdrop-blur-sm shadow-xl">
+      <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-800">
+        <h3 class="text-base font-bold text-amber-300 flex items-center gap-2">
+          <span>🏆</span> 成就圖鑑
+        </h3>
+        <span class="text-xs text-slate-400">解鎖中秋烘焙榮譽</span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        {% for ach in achievements %}
+        <div class="p-3 rounded-xl border flex items-center gap-3 transition-all
+          {% if ach.unlocked %}
+            bg-amber-400/10 border-amber-400/50 shadow-[0_0_15px_rgba(246,211,101,0.1)]
+          {% else %}
+            bg-slate-800/30 border-slate-800/80 opacity-50
+          {% endif %}"
+        >
+          <div class="text-2xl {% if not ach.unlocked %}grayscale{% endif %}">{{ ach.icon }}</div>
+          <div>
+            <div class="text-xs font-bold {% if ach.unlocked %}text-amber-200{% else %}text-slate-400{% endif %}">
+              {{ ach.name }}
+            </div>
+            <div class="text-[10px] text-slate-400">{{ ach.desc }}</div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

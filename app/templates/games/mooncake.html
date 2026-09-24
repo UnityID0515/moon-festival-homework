@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}🥮 月餅點點樂 | Mooncake Clicker (FastAPI + HTMX){% endblock %}
+
+{% block content %}
+<!-- Top Navigation Bar -->
+<nav class="border-b border-slate-800 bg-slate-950/70 backdrop-blur-md sticky top-0 z-50">
+  <div class="max-w-5xl mx-auto px-4 py-3.5 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 text-sm font-medium text-amber-300 hover:text-amber-200 transition-colors">
+      <span>←</span> 回到中秋遊戲大廳
+    </a>
+    <div class="font-bold text-slate-100 flex items-center gap-2 text-sm md:text-base">
+      <span>🌕</span> 月餅點點樂 (Mooncake Clicker)
+    </div>
+    <div>
+      <button 
+        hx-post="/games/mooncake/reset"
+        hx-target="#game-state"
+        hx-swap="outerHTML"
+        hx-confirm="確定要重設月餅與所有升級進度嗎？"
+        class="px-3 py-1.5 border border-red-500/40 text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-lg text-xs font-medium transition-colors"
+      >
+        🔄 重設進度
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Game Stage -->
+<main class="max-w-5xl mx-auto px-4 py-8 w-full flex-1">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+    {% include "games/partials/game_state.html" %}
+  </div>
+</main>
+{% endblock %}
