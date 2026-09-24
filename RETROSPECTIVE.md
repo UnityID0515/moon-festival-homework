@@ -13,6 +13,7 @@
 * **零 JS / 零 npm 的架構轉型與諮詢 (Architecture & Stack Consultation)**：
   當我提出「不想要 npm、不寫 JavaScript、希望以 Python 為核心打造 Hub + SPAs」的需求時，AI 提供了客觀專業的架構評估，並精確採用了現代 Python 生態中最火紅的 **HOT 棧 (FastAPI + HTMX + TailwindCSS via CDN)**。
   此外，在視覺設計迭代上，AI 透過官方 CDN 整合了 **Lucide Icons**，搭配 HTMX 的 `hx-on::after-swap` 事件，在堅持「零手寫 JS 與零 npm」的前提下，讓遊戲大廳與月餅點點樂獲得了現代高質感的 SVG 向量圖標與流暢的動態置換體驗。
+  在第二階段拓展「中秋露天烤肉模擬器」時，得益於 Hub 模組化設計與 TDD 規範，僅用極短時間便以純 Python 實作出雙面受熱模型與 HTMX 烤爐互動，並新增 13 項測試確保零回歸（Zero Regressions）。
 
 
 ---

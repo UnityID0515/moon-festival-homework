@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from app.games.mooncake.router import router as mooncake_router
+from app.games.bbq.router import router as bbq_router
 
 app = FastAPI(
     title="中秋小遊戲樂園 | Mid-Autumn Games Arcade",
@@ -12,6 +13,7 @@ templates = Jinja2Templates(directory="app/templates")
 
 # Mount game sub-routers
 app.include_router(mooncake_router)
+app.include_router(bbq_router)
 
 
 @app.get("/")
